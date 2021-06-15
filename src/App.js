@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import {LabelFrontStyleA} from 'components/Label/LabelFront'
+import styled from 'styled-components'
+import GlobalStyle from 'styles/GlobalStyle'
+
+const Layout = styled.div`
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;  
+  justify-content: center;
+  padding-top: 10%;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+<>
+<GlobalStyle/>
+    <Layout>
+      <LabelFrontStyleA/>
+    </Layout>
+</>
+)}
 
 export default App;
