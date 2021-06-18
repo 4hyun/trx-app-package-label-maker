@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import CombinedCannabinoidContent from "../CannabinoidContent" 
 import Header from "components/Label/Header"
 import Body from "components/Label/Body"
@@ -9,19 +9,43 @@ const THCContent = () => <CombinedCannabinoidContent {...{cannabinoid:"THC"}}/>
 
 const CBDContent = () => <CombinedCannabinoidContent {...{cannabinoid:"CBD"}}/>
 
-const Container = styled.div`
+const CannabinoidContentContainer = styled.div`
+  display:flex;
+  padding-top:8pt;
+  padding-bottom:8pt;
+  justify-content:center;
+`
+
+const CombinedCannabinoidContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
+`
+
+const Container = styled.div`
+  display: flex;
+  background: #fff;
+  flex-direction: column;
   width: 3in;
+`
+
+const bodyWrapperStyles = css`
+  margin-left: 16pt;
+  margin-right: 16pt;
 `
 
 const LabelFrontStyleA = () => {
   return (
     <Container>
       <Header/>
-      <Body>
+      <Body wrapperStyle={bodyWrapperStyles}>
+<CannabinoidContentContainer>
+<CombinedCannabinoidContentWrapper>
         <THCContent/>
+</CombinedCannabinoidContentWrapper>
+<CombinedCannabinoidContentWrapper>
         <CBDContent/>
+</CombinedCannabinoidContentWrapper>
+</CannabinoidContentContainer>
         <HealthWarningMessage/>
       </Body>
       LabelFrontStyleA footer

@@ -4,11 +4,12 @@ import styled from 'styled-components'
 const Wrapper = styled.div`
   display:flex;
   flex-direction:column;
+  ${({wrapperStyle}) => wrapperStyle}
 `
 
-const Body = ({children}) => {
+const Body = ({children, wrapperStyle ={}}) => {
   return (
-    <Wrapper>
+    <Wrapper wrapperStyle={wrapperStyle}>
       {children}
     </Wrapper>
   )

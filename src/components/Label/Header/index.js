@@ -8,7 +8,9 @@ export {default as StandardizedCannabisSymbol} from "./StandardizedCannabisSymbo
 export {default as BrandLogo} from "./BrandLogo"
 
 export const Wrapper = styled.div`
-display: flex;`
+display: flex;
+background: #3f9b39;
+`
 
 const StyledCannabisSymbol = styled(StandardizedCannabisSymbol)`
   width: 1.27cm;
