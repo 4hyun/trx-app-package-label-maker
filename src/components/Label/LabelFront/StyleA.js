@@ -1,19 +1,19 @@
-import React from 'react'
-import styled, {css} from 'styled-components'
-import CombinedCannabinoidContent from "../CannabinoidContent" 
+import React from "react"
+import styled, { css } from "styled-components"
+import CombinedCannabinoidContent from "../CannabinoidContent"
 import Header from "components/Label/Header"
 import Body from "components/Label/Body"
-import HealthWarningMessage from '../HealthWarningMessage.js'
+import HealthWarningMessage from "../HealthWarningMessage.js"
 
-const THCContent = () => <CombinedCannabinoidContent {...{cannabinoid:"THC"}}/>
+const THCContent = () => <CombinedCannabinoidContent {...{ cannabinoid: "THC" }} />
 
-const CBDContent = () => <CombinedCannabinoidContent {...{cannabinoid:"CBD"}}/>
+const CBDContent = () => <CombinedCannabinoidContent {...{ cannabinoid: "CBD" }} />
 
 const CannabinoidContentContainer = styled.div`
-  display:flex;
-  padding-top:8pt;
-  padding-bottom:8pt;
-  justify-content:center;
+  display: flex;
+  padding-top: 8pt;
+  padding-bottom: 8pt;
+  justify-content: center;
 `
 
 const CombinedCannabinoidContentWrapper = styled.div`
@@ -26,6 +26,7 @@ const Container = styled.div`
   background: #fff;
   flex-direction: column;
   width: 3in;
+  height: fit-content;
 `
 
 const bodyWrapperStyles = css`
@@ -33,24 +34,33 @@ const bodyWrapperStyles = css`
   margin-right: 16pt;
 `
 
-const LabelFrontStyleA = () => {
+const Footer = styled.p`
+  font-size: 8pt;
+  text-align: right;
+`
+
+const LabelFrontStyleA = ({ packageContentDetails }) => {
   return (
     <Container>
-      <Header/>
+      <Header />
       <Body wrapperStyle={bodyWrapperStyles}>
-<CannabinoidContentContainer>
-<CombinedCannabinoidContentWrapper>
-        <THCContent/>
-</CombinedCannabinoidContentWrapper>
-<CombinedCannabinoidContentWrapper>
-        <CBDContent/>
-</CombinedCannabinoidContentWrapper>
-</CannabinoidContentContainer>
-        <HealthWarningMessage/>
+        <CannabinoidContentContainer>
+          <CombinedCannabinoidContentWrapper>
+            <THCContent />
+          </CombinedCannabinoidContentWrapper>
+          <CombinedCannabinoidContentWrapper>
+            <CBDContent />
+          </CombinedCannabinoidContentWrapper>
+        </CannabinoidContentContainer>
+        <HealthWarningMessage />
+        <Footer>{packageContentDetails}</Footer>
       </Body>
-      LabelFrontStyleA footer
     </Container>
   )
 }
 
 export default LabelFrontStyleA
+
+LabelFrontStyleA.defaultProps = {
+  packageContentDetails: "Contains 1 jar / Contient 1 pot",
+}

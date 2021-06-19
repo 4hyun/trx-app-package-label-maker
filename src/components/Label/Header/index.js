@@ -3,13 +3,16 @@ import StandardizedCannabisSymbol from "./StandardizedCannabisSymbol"
 import ProductTitle from "./ProductTitle"
 import BrandLogo from "./BrandLogo"
 
-export {default as ProductTitle} from "./ProductTitle";
-export {default as StandardizedCannabisSymbol} from "./StandardizedCannabisSymbol";
-export {default as BrandLogo} from "./BrandLogo"
+export { default as ProductTitle } from "./ProductTitle"
+export { default as StandardizedCannabisSymbol } from "./StandardizedCannabisSymbol"
+export { default as BrandLogo } from "./BrandLogo"
 
 export const Wrapper = styled.div`
-display: flex;
-background: #3f9b39;
+  display: flex;
+  background: #3f9b39;
+  justify-content: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
 `
 
 const StyledCannabisSymbol = styled(StandardizedCannabisSymbol)`
@@ -17,8 +20,14 @@ const StyledCannabisSymbol = styled(StandardizedCannabisSymbol)`
   height: 1.27cm;
 `
 
-const Header = () => <Wrapper>
-  <StyledCannabisSymbol/><ProductTitle>Product Title Goes Here</ProductTitle><BrandLogo/>
-</Wrapper>
+const Header = ({ productTitle }) => (
+  <Wrapper>
+    <StyledCannabisSymbol />
+    <ProductTitle>{productTitle}</ProductTitle>
+    <BrandLogo />
+  </Wrapper>
+)
 
 export default Header
+
+Header.defaultProps = { productTitle: "Product Title Goes Here." }
