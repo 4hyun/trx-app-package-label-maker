@@ -18,10 +18,14 @@ const Wrapper = styled.div`
   }
 `
 
+const TextRight = styled(Text)`
+  text-align: right;
+`
+
 const HealthWarningMessage = ({ messageBody, messageFooter }) => (
   <Wrapper>
     <ReactMarkdown children={messageBody}></ReactMarkdown>
-    <Text>{messageFooter}</Text>
+    <TextRight>{messageFooter}</TextRight>
   </Wrapper>
 )
 
