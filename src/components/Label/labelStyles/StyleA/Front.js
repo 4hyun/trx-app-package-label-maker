@@ -1,9 +1,9 @@
 import React from "react"
 import styled, { css } from "styled-components"
-import CombinedCannabinoidContent from "../CannabinoidContent"
+import CombinedCannabinoidContent from "components/Label/CannabinoidContent"
 import Header from "components/Label/Header"
 import Body from "components/Label/Body"
-import HealthWarningMessage from "../HealthWarningMessage.js"
+import HealthWarningMessage from "components/Label/HealthWarningMessage"
 
 const THCContent = () => <CombinedCannabinoidContent {...{ cannabinoid: "THC" }} />
 
