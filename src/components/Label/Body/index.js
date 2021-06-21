@@ -1,15 +1,16 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 
 const Wrapper = styled.div`
-  display:flex;
-  flex-direction:column;
-  ${({wrapperStyle}) => wrapperStyle}
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  ${({ wrapperStyle }) => wrapperStyle}
 `
 
-const Body = ({children, wrapperStyle ={}}) => {
+const Body = ({ children, wrapperStyle = {} }) => {
   return (
-    <Wrapper wrapperStyle={wrapperStyle}>
+    <Wrapper wrapperStyle={wrapperStyle} className="font-open-sans">
       {children}
     </Wrapper>
   )

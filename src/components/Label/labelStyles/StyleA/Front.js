@@ -11,9 +11,11 @@ const CBDContent = () => <CombinedCannabinoidContent {...{ cannabinoid: "CBD" }}
 
 const CannabinoidContentContainer = styled.div`
   display: flex;
+  font-size: 6.32pt;
+  font-weight: 600;
   padding-top: 8pt;
   padding-bottom: 8pt;
-  justify-content: center;
+  justify-content: space-between;
 `
 
 const CombinedCannabinoidContentWrapper = styled.div`
@@ -21,28 +23,30 @@ const CombinedCannabinoidContentWrapper = styled.div`
   flex-direction: column;
 `
 
-const Container = styled.div`
+const LabelContainer = styled.div`
   display: flex;
   background: #fff;
   flex-direction: column;
   width: 3in;
-  height: fit-content;
+  min-width: 3in;
+  height: 3.125in;
 `
 
 const bodyWrapperStyles = css`
-  margin-left: 16pt;
-  margin-right: 16pt;
+  margin-left: 10pt;
+  margin-right: 10pt;
 `
 
 const Footer = styled.p`
-  font-size: 8pt;
+  margin-top: 0;
+  font-size: 7.65pt;
   text-align: right;
 `
 
-const LabelFrontStyleA = ({ packageContentDetails }) => {
+const LabelFrontStyleA = ({ flavor, packageContentDetails }) => {
   return (
-    <Container>
-      <Header />
+    <LabelContainer>
+      <Header productTitle={flavor.name} />
       <Body wrapperStyle={bodyWrapperStyles}>
         <CannabinoidContentContainer>
           <CombinedCannabinoidContentWrapper>
@@ -53,9 +57,9 @@ const LabelFrontStyleA = ({ packageContentDetails }) => {
           </CombinedCannabinoidContentWrapper>
         </CannabinoidContentContainer>
         <HealthWarningMessage />
-        <Footer>{packageContentDetails}</Footer>
+        <Footer className="font-open-sans">{packageContentDetails}</Footer>
       </Body>
-    </Container>
+    </LabelContainer>
   )
 }
 

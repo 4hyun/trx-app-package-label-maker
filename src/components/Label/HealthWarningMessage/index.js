@@ -5,9 +5,10 @@ import ReactMarkdown from "react-markdown"
 
 const Wrapper = styled.div`
   background-color: var(--HealthWarningMessageYellow);
-  padding: 0.5em 1em;
+  border: 2px solid #000;
+  padding: 3pt 5pt;
   & * {
-    font-size: 8.5pt;
+    font-size: 7.65pt;
     white-space: pre-wrap;
   }
   & > p:first-child {

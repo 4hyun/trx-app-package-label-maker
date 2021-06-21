@@ -10,9 +10,11 @@ export { default as BrandLogo } from "./BrandLogo"
 export const Wrapper = styled.div`
   display: flex;
   background: #3f9b39;
-  justify-content: center;
+  justify-content: space-between;
   padding-top: 1em;
   padding-bottom: 1em;
+  padding-left: 16pt;
+  padding-right: 16pt;
 `
 
 const StyledCannabisSymbol = styled(StandardizedCannabisSymbol)`
@@ -23,7 +25,7 @@ const StyledCannabisSymbol = styled(StandardizedCannabisSymbol)`
 const Header = ({ productTitle }) => (
   <Wrapper>
     <StyledCannabisSymbol />
-    <ProductTitle>{productTitle}</ProductTitle>
+    <ProductTitle className="font-open-sans">{productTitle}</ProductTitle>
     <BrandLogo />
   </Wrapper>
 )
