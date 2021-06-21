@@ -4,26 +4,46 @@ import StyleAFront from "components/Label/labelStyles/StyleA/Front"
 import styled from "styled-components"
 import GlobalStyle from "styles/GlobalStyle"
 import fetchStrapi from "lib/api/strapi"
+import PrintButton from "components/Shared/Button/PrintButton"
+import PrintCheckbox from "components/Shared/PrintCheckbox"
 
 const Layout = styled.div`
   width: 100vw;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding-top: 10%;
+  row-gap: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+`
+
+const ControlGroupContainer = styled.div`
+  display: flex;
+  width: 100%;
 `
 
 const InnerLayout = styled.div`
-  width: 100%;
+  ${"" /* width: 100%; */}
   min-height: 100%;
   display: flex;
   justify-content: flex-start;
-  & > * {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
   flex-wrap: wrap;
+  row-gap: 1rem;
+  column-gap: 1rem;
 `
+
+const LabelContainerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+const LabelContainer = ({ children }) => (
+  <LabelContainerWrapper>
+    {children}
+    <PrintCheckbox />
+  </LabelContainerWrapper>
+)
 
 function App() {
   const [flavors, setFlavors] = useState(null)
@@ -44,7 +64,17 @@ function App() {
     <>
       <GlobalStyle />
       <Layout>
-        <InnerLayout>{flavors && flavors.map((flavor) => <StyleAFront flavor={flavor} />)}</InnerLayout>
+        <ControlGroupContainer>
+          <PrintButton />
+        </ControlGroupContainer>
+        <InnerLayout>
+          {flavors &&
+            flavors.map((flavor) => (
+              <LabelContainer>
+                <StyleAFront flavor={flavor} />
+              </LabelContainer>
+            ))}
+        </InnerLayout>
       </Layout>
     </>
   )
