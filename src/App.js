@@ -37,13 +37,26 @@ const InnerLayout = styled.div`
 const LabelContainerWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  @media print {
+    display: none;
+    &.to-print {
+      display: initial;
+    }
+  }
 `
-const LabelContainer = ({ children }) => (
-  <LabelContainerWrapper>
-    {children}
-    <PrintCheckbox />
-  </LabelContainerWrapper>
-)
+const LabelContainer = ({ children }) => {
+  const [checked, setChecked] = useState(null)
+  return (
+    <LabelContainerWrapper className={checked ? "to-print" : ""}>
+      {children}
+      <PrintCheckbox
+        handleOnChange={(e) => {
+          setChecked(e.target.checked)
+        }}
+      />
+    </LabelContainerWrapper>
+  )
+}
 
 function App() {
   const [flavors, setFlavors] = useState(null)

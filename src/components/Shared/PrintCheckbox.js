@@ -1,23 +1,17 @@
-import { useRef } from "react"
 import styled from "styled-components"
+import Checkbox from "@material-ui/core/Checkbox"
 
-const StyledCheckbox = styled.input.attrs({ type: "checkbox" })``
+const StyledCheckbox = styled(Checkbox)``
 
-const Checkbox = ({ checked, indeterminate, value }) => {
-  const checkboxEl = useRef(null)
+const PrintCheckbox = ({ message, name, handleOnChange, size }) => {
   return (
-    <StyledCheckbox
-      ref={checkboxEl}
-      {...{ checked, indeterminate, value }}
-      onClick={() => console.log("checkbox clicked. checkbox checked status: ", checkboxEl.current.checked)}
-    ></StyledCheckbox>
+    <StyledCheckbox {...{ message, size, name, onChange: handleOnChange }} inputProps={{ "aria-label": "checkbox slect to-print" }} disableRipple />
   )
 }
 
-export default Checkbox
+export default PrintCheckbox
 
-Checkbox.defaultProps = {
-  checked: false,
-  indeterminate: false,
-  value: "to-print",
+PrintCheckbox.defaultProps = {
+  size: "medium",
+  variant: "contained",
 }
