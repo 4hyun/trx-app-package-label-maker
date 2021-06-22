@@ -3,6 +3,11 @@
 body {
   background: #222;
 }
+@media print {
+  body {
+    background: initial;
+  }
+}
 
 .App {
   text-align: center;

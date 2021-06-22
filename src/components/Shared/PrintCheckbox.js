@@ -1,7 +1,11 @@
 import styled from "styled-components"
 import Checkbox from "@material-ui/core/Checkbox"
 
-const StyledCheckbox = styled(Checkbox)``
+const StyledCheckbox = styled(Checkbox)`
+  @media print {
+    display: none !important;
+  }
+`
 
 const PrintCheckbox = ({ message, name, handleOnChange, size }) => {
   return (
