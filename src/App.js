@@ -1,9 +1,13 @@
-import React, { useEffect, useCallback, useState } from "react"
+import React, { useEffect, useCallback, useState, useMemo } from "react"
 import "./App.css"
-import StyleAFront from "components/Label/labelStyles/StyleA/Front"
 import styled from "styled-components"
 import GlobalStyle from "styles/GlobalStyle"
 import fetchStrapi from "lib/api/strapi"
+/* contexts */
+import { ModalContextProvider } from "components/Shared/Modal/context"
+/* components */
+import Modal from "components/Shared/Modal"
+import StyleAFront from "components/Label/labelStyles/StyleA/Front"
 import PrintButton from "components/Shared/Button/PrintButton"
 import PrintCheckbox from "components/Shared/PrintCheckbox"
 
@@ -60,6 +64,9 @@ const LabelContainer = ({ children }) => {
 
 function App() {
   const [flavors, setFlavors] = useState(null)
+  const checkSelectedToPrint = () => {
+    return document.querySelectorAll(".to-print").length > 0
+  }
   const fetchFlavors = useCallback(async () => {
     const res = await fetchStrapi("/flavors")
     const data = await res.json()
@@ -76,19 +83,22 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Layout>
-        <ControlGroupContainer>
-          <PrintButton />
-        </ControlGroupContainer>
-        <InnerLayout>
-          {flavors &&
-            flavors.map((flavor) => (
-              <LabelContainer>
-                <StyleAFront flavor={flavor} />
-              </LabelContainer>
-            ))}
-        </InnerLayout>
-      </Layout>
+      <ModalContextProvider>
+        <Layout>
+          <ControlGroupContainer>
+            <PrintButton checkSelectedToPrint={checkSelectedToPrint} />
+          </ControlGroupContainer>
+          <InnerLayout>
+            {flavors &&
+              flavors.map((flavor) => (
+                <LabelContainer>
+                  <StyleAFront flavor={flavor} />
+                </LabelContainer>
+              ))}
+          </InnerLayout>
+        </Layout>
+        <Modal />
+      </ModalContextProvider>
     </>
   )
 }
