@@ -1,4 +1,4 @@
-const NOTHING_TO_PRINT = "You have not selected anything to print"
+const NOTHING_TO_PRINT = "No labels selected. Please select(checkbox) labels to print."
 
 const NO_PRODUCT = "There are no products in the CMS, please create product or contact admin for assistance"
 
