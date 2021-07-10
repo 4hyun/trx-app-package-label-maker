@@ -46,6 +46,7 @@ const LabelContainerWrapper = styled.div`
     &.to-print {
       display: initial;
     }
+    break-after: page;
   }
 `
 const LabelContainer = ({ children }) => {

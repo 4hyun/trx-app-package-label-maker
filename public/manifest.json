@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Xtracts Label Maker",
+  "name": "Create Labels for Xtracts brand products available from Xtracts CMS",
   "icons": [
     {
       "src": "favicon.ico",
